@@ -709,9 +709,12 @@ th[aria-sort="ascending"] .pp-sort::after { content: " ▲"; font-size: .8em; }
     if (typeof x === 'number' && typeof y === 'number') return x - y;
     return String(x == null ? '' : x).localeCompare(String(y == null ? '' : y), 'nl');
   }
+  // uitslag goed en winnaar goed sorteren op het percentage; bij een gelijk percentage beslist het aantal
+  const OP_PCT = {uitslag_goed: 'uitslag_pct', winnaar_goed: 'goede_winnaar'};
   PP.sorteer = function (rijen, table) {
     const s = PP.sortVan(table);
-    const sleutels = [[s.veld, s.richting]].concat((table.dataset.tiebreak || '').split(',').filter(Boolean).map((t) => t.split(':')));
+    const pct = OP_PCT[s.veld] && rijen.length && OP_PCT[s.veld] in rijen[0] ? [[OP_PCT[s.veld], s.richting]] : [];
+    const sleutels = pct.concat([[s.veld, s.richting]], (table.dataset.tiebreak || '').split(',').filter(Boolean).map((t) => t.split(':')));
     return rijen.slice().sort((a, b) => {
       for (const [v, r] of sleutels) { const c = vergelijk(a, b, v); if (c) return r === 'asc' ? c : -c; }
       return 0;
