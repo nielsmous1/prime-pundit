@@ -156,11 +156,10 @@ th[aria-sort="ascending"] .pp-sort::after { content: " ▲"; font-size: .8em; }
 .pp-meter i { display: block; height: 100%; border-radius: 999px; background: var(--pp-accent); }
 .pp-detail { cursor: pointer; text-decoration: underline dotted var(--pp-accent); text-underline-offset: 3px; }
 .pp-detail.pp-actief { outline: 2px solid var(--pp-accent); outline-offset: -2px; }
-.pp-pop { display: none; position: absolute; z-index: 20; width: min(30rem, 100%); max-height: 22rem; overflow: auto; padding: var(--cds-pad-sm) var(--cds-pad-md);
+.pp-pop { display: none; position: absolute; z-index: 20; box-sizing: border-box; width: min(30rem, 100%); overflow: auto; overscroll-behavior: contain; padding: var(--cds-pad-sm) var(--cds-pad-md);
   background: var(--cds-surface-popover); border: 1px solid var(--cds-border); border-top: 3px solid var(--pp-blauw); border-radius: var(--cds-radius); box-shadow: var(--cds-shadow-popover); }
-.pp-pop { pointer-events: none; }
 .pp-pop.pp-open { display: block; }
-.pp-pop.pp-vast { pointer-events: auto; }
+#slotfase .pp-pop { width: min(42rem, 100%); }
 .pp-pop-kop { margin: 0 0 6px; font-weight: 700; font-size: var(--cds-font-size-caption); text-transform: uppercase; letter-spacing: .05em; color: var(--pp-accent); }
 .pp-pop-tabel { border-collapse: collapse; width: 100%; font-size: var(--cds-font-size-caption); font-variant-numeric: tabular-nums; }
 .pp-pop-tabel th, .pp-pop-tabel td { padding: 3px 6px; text-align: right; white-space: nowrap; border-bottom: 1px solid var(--color-border-line); }
@@ -238,7 +237,6 @@ th[aria-sort="ascending"] .pp-sort::after { content: " ▲"; font-size: .8em; }
   .pp-cijfers { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .pp-cijfer, .pp-record { padding: 10px 12px; }
   .pp-groot, .pp-record-waarde { font-size: 1.5rem; }
-  .pp-pop { max-height: 60vh; }
 }
 @media print { .pp-nav { display: none; } .pp-pagina { break-before: page; } .pp-band { -webkit-print-color-adjust: exact; print-color-adjust: exact; } }
 </style>
@@ -319,11 +317,11 @@ th[aria-sort="ascending"] .pp-sort::after { content: " ▲"; font-size: .8em; }
   <section class="pp-pagina" id="slotfase">
     <div class="pp-persoon-kop">
       <h2 class="pp-naam">Slotfase</h2>
-      <p class="pp-zin">Hoe zou de stand eruitzien als elke wedstrijd na 85 minuten was afgelopen? Dan stond <b class="" data-draw="waarde" data-source="deelnemers" data-field="deelnemer" data-where="slot_rang=1">Jeroen</b> bovenaan met <b class="" data-draw="waarde" data-source="deelnemers" data-field="slot_totaal" data-where="slot_rang=1">101</b> punten.</p>
+      <p class="pp-zin">Wie pakt de meeste punten in de slotfase en wie verliest ze hier juist? Dit zou de stand zijn als er elke wedstrijd na precies 85 minuten werd afgefloten.</p>
     </div>
     <div class="pp-blok" id="slotfase-stand">
-      <h3>Stand zonder doelpunten vanaf minuut 86</h3>
-      <p class="pp-legenda"><span><span class="pp-slot pp-slot-plus">▲</span> hoger of meer dan in de echte stand</span> <span><span class="pp-slot pp-slot-min">▼</span> lager of minder dan in de echte stand</span></p>
+      <h3>Stand zonder doelpunten na 85:00</h3>
+      <p class="pp-legenda"><span><span class="pp-slot pp-slot-plus">▲</span> hoger dan in de echte stand</span> <span><span class="pp-slot pp-slot-min">▼</span> lager dan in de echte stand</span></p>
       <div class="pp-tabel-buiten">
         <div class="pp-scroll"><table class="pp-tabel pp-twee-vast" style="--pp-kol1: 2.6rem" id="tabel-slotfase" data-source="deelnemers" data-row-key="deelnemer" data-sort="slot_rang:asc" data-tiebreak="deelnemer:asc">
           <thead><tr><th data-field="slot_rang" data-eerst="asc" aria-sort="ascending" class=""><button type="button" class="pp-sort">#</button></th><th data-field="deelnemer" data-eerst="asc" aria-sort="none" class="pp-l"><button type="button" class="pp-sort">Deelnemer</button></th><th data-field="slot_totaal" data-eerst="desc" aria-sort="none" class=""><button type="button" class="pp-sort">Totaal</button></th><th data-field="slot_kwijt" data-eerst="desc" aria-sort="none" class=""><button type="button" class="pp-sort">Punten<br>kwijt</button></th><th data-field="slot_erbij" data-eerst="desc" aria-sort="none" class=""><button type="button" class="pp-sort">Punten<br>erbij</button></th><th data-field="slot_weekwinsten" data-eerst="desc" aria-sort="none" class=""><button type="button" class="pp-sort">Weekwinsten</button></th></tr></thead>
@@ -331,7 +329,7 @@ th[aria-sort="ascending"] .pp-sort::after { content: " ▲"; font-size: .8em; }
         </table></div>
         <div class="pp-pop" data-draw="pop" role="dialog" aria-label="Wedstrijden"></div>
       </div>
-      <p class="pp-hint">Totaal: alle punten met weekwinst, als de doelpunten vanaf minuut 86 niet hadden meegeteld. De driehoekjes geven het verschil met de echte stand in plaatsen, punten en weekwinsten. Punten kwijt en erbij: wat de doelpunten vanaf minuut 86 kostten en opleverden. Wijs of klik op een onderstreept getal voor de wedstrijden.</p>
+      <p class="pp-hint">Totaal: alle punten met weekwinst, als de doelpunten na 85:00 niet hadden meegeteld. De driehoekjes geven het verschil met de echte stand in plaatsen, punten en weekwinsten. Punten kwijt en erbij: wat de doelpunten na 85:00 kostten en opleverden. Wijs of klik op een onderstreept getal voor de wedstrijden.</p>
     </div>
     <div class="pp-blok">
       <h3>Opvallend</h3>
@@ -969,7 +967,13 @@ th[aria-sort="ascending"] .pp-sort::after { content: " ▲"; font-size: .8em; }
     const breed = pop.offsetWidth;
     const links = Math.max(0, Math.min(c.left - b.left + c.width / 2 - breed / 2, buiten.clientWidth - breed));
     pop.style.left = links + 'px';
-    pop.style.top = (c.bottom - b.top + 6) + 'px';
+    // het hele venster in beeld: onder de cel als het past, anders aan de kant met de meeste ruimte, en dan scrollbaar
+    pop.style.maxHeight = 'none';
+    const hoog = pop.offsetHeight, rand = 8;
+    const onder = window.innerHeight - c.bottom - 6 - rand, boven = c.top - 6 - rand;
+    const naarBoven = hoog > onder && boven > onder;
+    pop.style.maxHeight = Math.max(160, Math.min(hoog, naarBoven ? boven : onder)) + 'px';
+    pop.style.top = (naarBoven ? c.top - b.top - 6 - pop.offsetHeight : c.bottom - b.top + 6) + 'px';
   }
   PP.toon = function (td, pin) {
     clearTimeout(staat.timer);
@@ -990,7 +994,7 @@ th[aria-sort="ascending"] .pp-sort::after { content: " ▲"; font-size: .8em; }
   PP.verbergStraks = function () {
     if (staat.vast) return;
     clearTimeout(staat.timer);
-    staat.timer = setTimeout(() => PP.sluit(), 120);
+    staat.timer = setTimeout(() => PP.sluit(), 250);
   };
   PP.sluit = function () {
     clearTimeout(staat.timer);
