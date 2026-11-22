@@ -146,6 +146,8 @@ th[aria-sort="ascending"] .pp-sort::after { content: " ▲"; font-size: .8em; }
 .pp-slot-plus { color: color-mix(in srgb, var(--pp-groen) 75%, var(--color-fg)); }
 .pp-slot-min { color: color-mix(in srgb, var(--pp-rood) 75%, var(--color-fg)); }
 .pp-slot-nul { color: var(--color-fg-muted); }
+.pp-tabel .pp-slot { display: inline-block; min-width: 3.1em; margin-left: 6px; text-align: left; font-size: .9em; }
+.pp-slotnaam .pp-naamknop { display: inline-block; min-width: 4.3em; text-align: left; }
 .pp-pct { color: var(--color-fg-muted); font-weight: 400; font-size: .9em; }
 .pp-stand tbody tr, #tabel-competities tbody tr { cursor: pointer; }
 .pp-tabel tr.pp-gekozen td { background: var(--pp-tint-sterk); font-weight: 700; }
@@ -321,15 +323,15 @@ th[aria-sort="ascending"] .pp-sort::after { content: " ▲"; font-size: .8em; }
     </div>
     <div class="pp-blok" id="slotfase-stand">
       <h3>Stand zonder doelpunten vanaf minuut 86</h3>
-      <p class="pp-legenda"><span><span class="pp-slot pp-slot-plus">▲</span> de slotfase leverde per saldo punten op</span> <span><span class="pp-slot pp-slot-min">▼</span> de slotfase kostte per saldo punten</span></p>
+      <p class="pp-legenda"><span><span class="pp-slot pp-slot-plus">▲</span> hoger of meer dan in de echte stand</span> <span><span class="pp-slot pp-slot-min">▼</span> lager of minder dan in de echte stand</span></p>
       <div class="pp-tabel-buiten">
         <div class="pp-scroll"><table class="pp-tabel pp-twee-vast" style="--pp-kol1: 2.6rem" id="tabel-slotfase" data-source="deelnemers" data-row-key="deelnemer" data-sort="slot_rang:asc" data-tiebreak="deelnemer:asc">
-          <thead><tr><th data-field="slot_rang" data-eerst="asc" aria-sort="ascending" class=""><button type="button" class="pp-sort">#</button></th><th data-field="deelnemer" data-eerst="asc" aria-sort="none" class="pp-l"><button type="button" class="pp-sort">Deelnemer</button></th><th data-field="slot_totaal" data-eerst="desc" aria-sort="none" class=""><button type="button" class="pp-sort">Totaal</button></th><th data-field="slot_verschil" data-eerst="desc" aria-sort="none" class=""><button type="button" class="pp-sort">Slotfase</button></th><th data-field="totaal" data-eerst="desc" aria-sort="none" class=""><button type="button" class="pp-sort">Echte<br>stand</button></th><th data-field="slot_kwijt" data-eerst="desc" aria-sort="none" class=""><button type="button" class="pp-sort">Punten<br>kwijt</button></th><th data-field="slot_erbij" data-eerst="desc" aria-sort="none" class=""><button type="button" class="pp-sort">Punten<br>erbij</button></th><th data-field="slot_weekwinsten" data-eerst="desc" aria-sort="none" class=""><button type="button" class="pp-sort">Weekwinsten</button></th></tr></thead>
-          <tbody data-draw="slotstand" data-soort="slotfase"><tr data-key="Jeroen" data-naam="Jeroen" class="pp-koploper"><td>1</td><td class="pp-l"><button type="button" class="pp-naamknop">Jeroen</button></td><td class="pp-vet">101</td><td><span class="pp-slot pp-slot-min" title="6 punten kwijt door de slotfase">▼ −6</span></td><td>95<span class="pp-pct"> (3e)</span></td><td class="pp-detail" tabindex="0" data-wat="slot_kwijt">21</td><td class="pp-detail" tabindex="0" data-wat="slot_erbij">13</td><td>2</td></tr><tr data-key="Jelmer" data-naam="Jelmer"><td>2</td><td class="pp-l"><button type="button" class="pp-naamknop">Jelmer</button></td><td class="pp-vet">96</td><td><span class="pp-slot pp-slot-min" title="6 punten kwijt door de slotfase">▼ −6</span></td><td>90<span class="pp-pct"> (4e)</span></td><td class="pp-detail" tabindex="0" data-wat="slot_kwijt">16</td><td class="pp-detail" tabindex="0" data-wat="slot_erbij">14</td><td>3</td></tr><tr data-key="Erwin" data-naam="Erwin"><td>3</td><td class="pp-l"><button type="button" class="pp-naamknop">Erwin</button></td><td class="pp-vet">95</td><td><span class="pp-slot pp-slot-plus" title="1 punten erbij door de slotfase">▲ +1</span></td><td>96<span class="pp-pct"> (2e)</span></td><td class="pp-detail" tabindex="0" data-wat="slot_kwijt">16</td><td class="pp-detail" tabindex="0" data-wat="slot_erbij">17</td><td>3</td></tr><tr data-key="Robin" data-naam="Robin"><td>4</td><td class="pp-l"><button type="button" class="pp-naamknop">Robin</button></td><td class="pp-vet">92</td><td><span class="pp-slot pp-slot-plus" title="7 punten erbij door de slotfase">▲ +7</span></td><td>99<span class="pp-pct"> (1e)</span></td><td class="pp-detail" tabindex="0" data-wat="slot_kwijt">12</td><td class="pp-detail" tabindex="0" data-wat="slot_erbij">17</td><td>2</td></tr><tr data-key="Agil" data-naam="Agil"><td>5</td><td class="pp-l"><button type="button" class="pp-naamknop">Agil</button></td><td class="pp-vet">85</td><td><span class="pp-slot pp-slot-plus" title="1 punten erbij door de slotfase">▲ +1</span></td><td>86<span class="pp-pct"> (5e)</span></td><td class="pp-detail" tabindex="0" data-wat="slot_kwijt">12</td><td class="pp-detail" tabindex="0" data-wat="slot_erbij">13</td><td>2</td></tr><tr data-key="Rob" data-naam="Rob"><td>6</td><td class="pp-l"><button type="button" class="pp-naamknop">Rob</button></td><td class="pp-vet">80</td><td><span class="pp-slot pp-slot-min" title="9 punten kwijt door de slotfase">▼ −9</span></td><td>71<span class="pp-pct"> (7e)</span></td><td class="pp-detail" tabindex="0" data-wat="slot_kwijt">18</td><td class="pp-detail" tabindex="0" data-wat="slot_erbij">9</td><td>0</td></tr><tr data-key="Niels" data-naam="Niels"><td>7</td><td class="pp-l"><button type="button" class="pp-naamknop">Niels</button></td><td class="pp-vet">77</td><td><span class="pp-slot pp-slot-plus" title="7 punten erbij door de slotfase">▲ +7</span></td><td>84<span class="pp-pct"> (6e)</span></td><td class="pp-detail" tabindex="0" data-wat="slot_kwijt">8</td><td class="pp-detail" tabindex="0" data-wat="slot_erbij">15</td><td>2</td></tr></tbody>
+          <thead><tr><th data-field="slot_rang" data-eerst="asc" aria-sort="ascending" class=""><button type="button" class="pp-sort">#</button></th><th data-field="deelnemer" data-eerst="asc" aria-sort="none" class="pp-l"><button type="button" class="pp-sort">Deelnemer</button></th><th data-field="slot_totaal" data-eerst="desc" aria-sort="none" class=""><button type="button" class="pp-sort">Totaal</button></th><th data-field="slot_kwijt" data-eerst="desc" aria-sort="none" class=""><button type="button" class="pp-sort">Punten<br>kwijt</button></th><th data-field="slot_erbij" data-eerst="desc" aria-sort="none" class=""><button type="button" class="pp-sort">Punten<br>erbij</button></th><th data-field="slot_weekwinsten" data-eerst="desc" aria-sort="none" class=""><button type="button" class="pp-sort">Weekwinsten</button></th></tr></thead>
+          <tbody data-draw="slotstand" data-soort="slotfase"><tr data-key="Jeroen" data-naam="Jeroen" class="pp-koploper"><td>1</td><td class="pp-l pp-slotnaam"><button type="button" class="pp-naamknop">Jeroen</button><span class="pp-slot pp-slot-plus" title="2 plaatsen hoger dan in de echte stand">▲ +2</span></td><td class="pp-vet">101<span class="pp-slot pp-slot-plus" title="6 punten meer dan in de echte stand">▲ +6</span></td><td class="pp-detail" tabindex="0" data-wat="slot_kwijt">21</td><td class="pp-detail" tabindex="0" data-wat="slot_erbij">13</td><td>2<span class="pp-slot pp-slot-min" title="1 weekwinst minder dan in de echte stand">▼ −1</span></td></tr><tr data-key="Jelmer" data-naam="Jelmer"><td>2</td><td class="pp-l pp-slotnaam"><button type="button" class="pp-naamknop">Jelmer</button><span class="pp-slot pp-slot-plus" title="2 plaatsen hoger dan in de echte stand">▲ +2</span></td><td class="pp-vet">96<span class="pp-slot pp-slot-plus" title="6 punten meer dan in de echte stand">▲ +6</span></td><td class="pp-detail" tabindex="0" data-wat="slot_kwijt">16</td><td class="pp-detail" tabindex="0" data-wat="slot_erbij">14</td><td>3<span class="pp-slot pp-slot-plus" title="2 weekwinsten meer dan in de echte stand">▲ +2</span></td></tr><tr data-key="Erwin" data-naam="Erwin"><td>3</td><td class="pp-l pp-slotnaam"><button type="button" class="pp-naamknop">Erwin</button><span class="pp-slot pp-slot-min" title="1 plaats lager dan in de echte stand">▼ −1</span></td><td class="pp-vet">95<span class="pp-slot pp-slot-min" title="1 punt minder dan in de echte stand">▼ −1</span></td><td class="pp-detail" tabindex="0" data-wat="slot_kwijt">16</td><td class="pp-detail" tabindex="0" data-wat="slot_erbij">17</td><td>3<span class="pp-slot pp-slot-min"></span></td></tr><tr data-key="Robin" data-naam="Robin"><td>4</td><td class="pp-l pp-slotnaam"><button type="button" class="pp-naamknop">Robin</button><span class="pp-slot pp-slot-min" title="3 plaatsen lager dan in de echte stand">▼ −3</span></td><td class="pp-vet">92<span class="pp-slot pp-slot-min" title="7 punten minder dan in de echte stand">▼ −7</span></td><td class="pp-detail" tabindex="0" data-wat="slot_kwijt">12</td><td class="pp-detail" tabindex="0" data-wat="slot_erbij">17</td><td>2<span class="pp-slot pp-slot-min" title="1 weekwinst minder dan in de echte stand">▼ −1</span></td></tr><tr data-key="Agil" data-naam="Agil"><td>5</td><td class="pp-l pp-slotnaam"><button type="button" class="pp-naamknop">Agil</button><span class="pp-slot pp-slot-min"></span></td><td class="pp-vet">85<span class="pp-slot pp-slot-min" title="1 punt minder dan in de echte stand">▼ −1</span></td><td class="pp-detail" tabindex="0" data-wat="slot_kwijt">12</td><td class="pp-detail" tabindex="0" data-wat="slot_erbij">13</td><td>2<span class="pp-slot pp-slot-min"></span></td></tr><tr data-key="Rob" data-naam="Rob"><td>6</td><td class="pp-l pp-slotnaam"><button type="button" class="pp-naamknop">Rob</button><span class="pp-slot pp-slot-plus" title="1 plaats hoger dan in de echte stand">▲ +1</span></td><td class="pp-vet">80<span class="pp-slot pp-slot-plus" title="9 punten meer dan in de echte stand">▲ +9</span></td><td class="pp-detail" tabindex="0" data-wat="slot_kwijt">18</td><td class="pp-detail" tabindex="0" data-wat="slot_erbij">9</td><td>0<span class="pp-slot pp-slot-min"></span></td></tr><tr data-key="Niels" data-naam="Niels"><td>7</td><td class="pp-l pp-slotnaam"><button type="button" class="pp-naamknop">Niels</button><span class="pp-slot pp-slot-min" title="1 plaats lager dan in de echte stand">▼ −1</span></td><td class="pp-vet">77<span class="pp-slot pp-slot-min" title="7 punten minder dan in de echte stand">▼ −7</span></td><td class="pp-detail" tabindex="0" data-wat="slot_kwijt">8</td><td class="pp-detail" tabindex="0" data-wat="slot_erbij">15</td><td>2<span class="pp-slot pp-slot-min"></span></td></tr></tbody>
         </table></div>
         <div class="pp-pop" data-draw="pop" role="dialog" aria-label="Wedstrijden"></div>
       </div>
-      <p class="pp-hint">Totaal: alle punten met weekwinst, als de doelpunten vanaf minuut 86 niet hadden meegeteld. Slotfase: wat die doelpunten per saldo opleverden of kostten. Echte stand: het totaal en de plaats nu. Wijs of klik op een onderstreept getal voor de wedstrijden.</p>
+      <p class="pp-hint">Totaal: alle punten met weekwinst, als de doelpunten vanaf minuut 86 niet hadden meegeteld. De driehoekjes geven het verschil met de echte stand in plaatsen, punten en weekwinsten. Punten kwijt en erbij: wat de doelpunten vanaf minuut 86 kostten en opleverden. Wijs of klik op een onderstreept getal voor de wedstrijden.</p>
     </div>
     <div class="pp-blok">
       <h3>Opvallend</h3>
@@ -727,15 +729,13 @@ th[aria-sort="ascending"] .pp-sort::after { content: " ▲"; font-size: .8em; }
     td.append(m, document.createTextNode(PP.fmt(veld || 'rendement', v)));
     return td;
   };
-  // groen driehoekje omhoog: de slotfase leverde per saldo punten op; rood omlaag: de slotfase kostte punten
-  PP.slotTd = function (v) {
-    const n = +v, td = document.createElement('td');
+  // verschil met de echte stand: groen driehoekje omhoog = hoger of meer zonder de slotfase, rood omlaag = lager of minder
+  PP.verschil = function (n, eenheid, op, neer) {
     const s = document.createElement('span');
-    s.className = 'pp-slot ' + (n > 0 ? 'pp-slot-plus' : n < 0 ? 'pp-slot-min' : 'pp-slot-nul');
-    s.textContent = n > 0 ? '▲ +' + n : n < 0 ? '▼ −' + -n : '0';
-    s.title = n > 0 ? n + ' punten erbij door de slotfase' : n < 0 ? -n + ' punten kwijt door de slotfase' : 'geen verschil';
-    td.appendChild(s);
-    return td;
+    s.className = 'pp-slot ' + (n > 0 ? 'pp-slot-plus' : 'pp-slot-min');
+    s.textContent = n > 0 ? '▲ +' + n : n < 0 ? '▼ −' + -n : '';
+    if (n) s.title = Math.abs(n) + ' ' + eenheid[Math.abs(n) === 1 ? 0 : 1] + ' ' + (n > 0 ? op : neer) + ' dan in de echte stand';
+    return s;
   };
   PP.sortVan = function (table) {
     if (PP.sortering[table.id]) return PP.sortering[table.id];
@@ -804,15 +804,15 @@ th[aria-sort="ascending"] .pp-sort::after { content: " ▲"; font-size: .8em; }
       tr.dataset.key = encodeURIComponent(r.deelnemer);
       tr.dataset.naam = r.deelnemer;
       if (+r.slot_rang === 1) tr.classList.add('pp-koploper');
-      const naam = document.createElement('td'); naam.className = 'pp-l';
+      const naam = document.createElement('td'); naam.className = 'pp-l pp-slotnaam';
       const knop = document.createElement('button'); knop.type = 'button'; knop.className = 'pp-naamknop'; knop.textContent = r.deelnemer;
       knop.addEventListener('click', () => PP.kies(r.deelnemer.toLowerCase()));
-      naam.appendChild(knop);
-      const echt = PP.td(r.totaal);
-      const plek = document.createElement('span'); plek.className = 'pp-pct'; plek.textContent = ' (' + r.rang + 'e)';
-      echt.appendChild(plek);
-      tr.append(PP.td(r.slot_rang), naam, PP.td(r.slot_totaal, 'pp-vet'), PP.slotTd(r.slot_verschil), echt,
-        PP.detailTd(r, 'slot_kwijt'), PP.detailTd(r, 'slot_erbij'), PP.td(r.slot_weekwinsten));
+      naam.append(knop, PP.verschil(r.rang - r.slot_rang, ['plaats', 'plaatsen'], 'hoger', 'lager'));
+      const totaal = PP.td(r.slot_totaal, 'pp-vet');
+      totaal.appendChild(PP.verschil(r.slot_totaal - r.totaal, ['punt', 'punten'], 'meer', 'minder'));
+      const winst = PP.td(r.slot_weekwinsten);
+      winst.appendChild(PP.verschil(r.slot_weekwinsten - r.weekwinsten, ['weekwinst', 'weekwinsten'], 'meer', 'minder'));
+      tr.append(PP.td(r.slot_rang), naam, totaal, PP.detailTd(r, 'slot_kwijt'), PP.detailTd(r, 'slot_erbij'), winst);
       return tr;
     }));
     PP.herstel(tb);
